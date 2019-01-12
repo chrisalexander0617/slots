@@ -2,8 +2,6 @@
 
 var title = $("#title");
 
-
-
 //BUTTONS
 const spinButton = $("#spin");
 
@@ -13,28 +11,26 @@ const spinButton = $("#spin");
 var c_two = $("#c-two");
 var c_three = $("#c-three");
 
-
-
 const slotOne = $("#slot-one");
 const slotTwo = $("#slot-two");
 const slotThree = $("#slot-three");
 
 //ICONS
-const cherry = 'http://gdurl.com/n2Xe';
-const grapes = 'http://gdurl.com/Gfve';
-const seven = 'http://gdurl.com/eWTb';
-const orange = 'http://gdurl.com/SI1g';
-const diamond = 'http://gdurl.com/1RmL';
-const strawberry = "http://gdurl.com/QYGM";
-const apple = 'http://gdurl.com/6pHT';
-const bar = 'http://gdurl.com/SAMq';
-const barTwo = 'http://gdurl.com/YYdq';
-const barThree = 'http://gdurl.com/i-kt';
-const bitcoin = "http://gdurl.com/I0Qp";
+const cherry = 'img/cherry.svg';
+const grapes = 'img/grapes.svg';
+const seven = 'img/seven.svg';
+const orange = 'img/orange.svg';
+const diamond = 'img/diamond.svg';
+const strawberry = "img/strawberry.svg";
+const apple = 'img/apple.svg';
+const heart = 'img/heart.svg';
+const tripleSevens = 'img/triple_sevens.svg';
+const cash = 'img/cash.svg';
+const coin = "img/coin.svg";
 
 
 //ARRAY HOLDING IMG VARIABLES
-const arr = [cherry, grapes, seven, orange, diamond, bar, barTwo, barThree, apple, strawberry, bitcoin];
+const arr = [cherry, grapes, seven, orange, diamond, heart, tripleSevens, cash, apple, strawberry, coin];
 
 //================================================================================================//
 //================================================================================================//
@@ -111,7 +107,7 @@ $(spinButton).on("click", function start(){
         console.log(resultThree);
 
 
-        credits = credits - 10;
+        credits = credits - 5;
 
           //RULES FOR RESULTS
 
@@ -146,12 +142,12 @@ $(spinButton).on("click", function start(){
 
           }, 250);
           //========================================================================================
-          //BITCOIN BRILLIANCE
+          //CRAZY COIN$
           //$16,000
           var startTime = new Date().getTime();
-          var bitcoinBrilliance = setInterval(function bitcoinBrilliance(){
+          var crazyCoins = setInterval(function crazyCoins(){
           if(new Date().getTime() - startTime >= 16000){
-          clearInterval(bitcoinBrilliance);
+          clearInterval(crazyCoins);
           //audio loops randomly when put into this area --- still troubleshooting
           return;
           }
@@ -169,6 +165,29 @@ $(spinButton).on("click", function start(){
         }, 250);
           //============================================================================
           //LUCKY LITTLE 7s
+          //$2560
+          var startTime = new Date().getTime();
+          var luckyLittleSevens = setInterval(function luckyLittleSevens(){
+          if(new Date().getTime() - startTime >= 16000){
+          clearInterval(luckyLittleSevens);
+          //audio loops randomly when put into this area --- still troubleshooting
+          return;
+          }
+          if(resultOne == 6 && resultTwo == 6 && resultThree == 6 ){
+            console.log("player wins $2560 ");
+
+            credits = credits + 40;
+            displayCredits.text(credits);
+
+            payout = payout + 40;
+            displayWins.text(payout);
+
+            var jackpot = new Audio("audio/jackpot_short.mp3");
+            jackpot.play();
+          }
+        }, 250);
+        //============================================================================
+          //LUCKY 7s
           //$800
           var startTime = new Date().getTime();
           var luckyLittleSevens = setInterval(function luckyLittleSevens(){
@@ -178,12 +197,12 @@ $(spinButton).on("click", function start(){
           return;
           }
           if(resultOne == 2 && resultTwo == 2 && resultThree == 2 ){
-            console.log("player wins $800 ");
+            console.log("player wins $1,280 ");
 
-            credits = credits + 12.5;
+            credits = credits + 20;
             displayCredits.text(credits);
 
-            payout = payout + 12.5;
+            payout = payout + 20;
             displayWins.text(payout);
 
             var jackpot = new Audio("audio/jackpot_short.mp3");
@@ -196,7 +215,7 @@ $(spinButton).on("click", function start(){
           
           
           //============================================================================
-          //Diamond on reel two ---- WIN $25
+          //Diamond on reel two ---- WIN $30
            if(resultTwo !== 4){
             console.log("LOSS");
             
@@ -215,7 +234,7 @@ $(spinButton).on("click", function start(){
             miniWin.play();
         }
           //============================================================================
-           //STR8 BARS (single) ---- WIN $25
+           //STR8 CA$$$$H (single) ---- WIN $75
            if(resultOne !==7 && resultTwo !==7 && resultThree !==7){
             console.log("LOSS");
             
@@ -224,7 +243,7 @@ $(spinButton).on("click", function start(){
 
             console.log("PLAYER WINS $75");
             
-            credits = credits +75;
+            credits = credits + 75;
             displayCredits.text(credits);
             
             payout = payout + 75;
@@ -235,7 +254,27 @@ $(spinButton).on("click", function start(){
         }
 
         //============================================================================
-           //ALL CHERRYS  ---- WIN $200
+           //ALL CHERRYS  ---- WIN $100
+           if(resultOne !==0 && resultTwo !==0 && resultThree !==0){
+            console.log("LOSS ALL CHERRYS");
+            
+            displayCredits.text(credits);
+           } else if(resultOne ==0 && resultTwo ==0 && resultThree ==0){
+
+            console.log("PLAYER WINS $100");
+            
+            credits = credits + 100;
+            displayCredits.text(credits);
+            
+            payout = payout + 100;
+            displayWins.text(payout);
+
+            var miniWin = new Audio("audio/mini-win.mp3");
+            miniWin.play();
+        }
+
+        //============================================================================
+           //ALL GRAPES  ---- WIN $200
            if(resultOne !==0 && resultTwo !==0 && resultThree !==0){
             console.log("LOSS");
             
@@ -244,7 +283,7 @@ $(spinButton).on("click", function start(){
 
             console.log("PLAYER WINS $200");
             
-            credits = credits +200;
+            credits = credits + 200;
             displayCredits.text(credits);
             
             payout = payout + 200;
@@ -254,20 +293,59 @@ $(spinButton).on("click", function start(){
             miniWin.play();
         }
 
-        //============================================================================
-           //ALL GRAPES  ---- WIN $100
-           if(resultOne !==0 && resultTwo !==0 && resultThree !==0){
-            console.log("LOSS");
+           //============================================================================
+           //ALL HEARTS  ---- WIN $300
+           if(resultOne !==5 && resultTwo !==5 && resultThree !==5){
+            console.log("LOSS FOR THE LOVE OF MONEY");
             
             displayCredits.text(credits);
-           } else if(resultOne ==0 && resultTwo ==0 && resultThree ==0){
+           } else if(resultOne ==5 && resultTwo ==5 && resultThree ==5){
 
-            console.log("PLAYER WINS $100");
+            console.log("PLAYER WINS $300");
             
-            credits = credits +100;
+            credits = credits + 300;
             displayCredits.text(credits);
             
-            payout = payout + 100;
+            payout = payout + 300;
+            displayWins.text(payout);
+
+            var miniWin = new Audio("audio/mini-win.mp3");
+            miniWin.play();
+        }
+
+        //============================================================================
+           //ALL ORANGES  ---- WIN $400
+           if(resultOne !==3 && resultTwo !==3 && resultThree !==3){
+            console.log("LOSS FOR THE LOVE OF MONEY");
+            
+            displayCredits.text(credits);
+           } else if(resultOne ==5 && resultTwo ==5 && resultThree ==5){
+
+            console.log("PLAYER WINS $400");
+            
+            credits = credits + 400;
+            displayCredits.text(credits);
+            
+            payout = payout + 400;
+            displayWins.text(payout);
+
+            var miniWin = new Audio("audio/mini-win.mp3");
+            miniWin.play();
+        }
+         //============================================================================
+           //3 IN THE MIDDLE  ---- WIN $500
+           if(resultOne !==2 && resultTwo !==6 && resultThree !==2){
+            console.log("LOSS FOR THE LOVE OF MONEY");
+            
+            displayCredits.text(credits);
+           } else if(resultOne ==2 && resultTwo ==6 && resultThree ==2){
+
+            console.log("PLAYER WINS $400");
+            
+            credits = credits + 400;
+            displayCredits.text(credits);
+            
+            payout = payout + 400;
             displayWins.text(payout);
 
             var miniWin = new Audio("audio/mini-win.mp3");
@@ -308,7 +386,7 @@ $(spinButton).on("click", function start(){
     $(slotTwo).attr("src", arr[epromTwo]);
     $(slotThree).attr("src", arr[epromThree]);
    ///rate of speed which arr is looping thru imgs (20ms)
-}, 10);
+}, 20);
 
 
 });
