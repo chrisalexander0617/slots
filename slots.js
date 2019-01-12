@@ -16,6 +16,19 @@ const slotTwo = $("#slot-two");
 const slotThree = $("#slot-three");
 
 //ICONS
+const cherry = 'http://gdurl.com/n2Xe';
+const grapes = 'http://gdurl.com/Gfve';
+const seven = 'http://gdurl.com/eWTb';
+const orange = 'http://gdurl.com/SI1g';
+const diamond = 'http://gdurl.com/1RmL';
+const strawberry = "http://gdurl.com/QYGM";
+const apple = 'http://gdurl.com/6pHT';
+const heart = 'http://gdurl.com/UBJy';
+const tripleSevens = 'http://gdurl.com/lm43';
+const cash = 'http://gdurl.com/F8jL';
+const coin = "http://gdurl.com/1Wbs";
+
+/*LOCAL FILE EXTENTIONS --- DESKTOP ONLY
 const cherry = 'img/cherry.svg';
 const grapes = 'img/grapes.svg';
 const seven = 'img/seven.svg';
@@ -27,6 +40,7 @@ const heart = 'img/heart.svg';
 const tripleSevens = 'img/triple_sevens.svg';
 const cash = 'img/cash.svg';
 const coin = "img/coin.svg";
+*/
 
 
 //ARRAY HOLDING IMG VARIABLES
