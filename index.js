@@ -24,19 +24,34 @@ $(document).ready(function startGame(){
         var button = $("button");
         //credits
         var credits = $("#credits");
-        var money = 100;
+        var money = 250;
         $(credits).text(money);
         //Global random number variables
         var epromA
         var epromB
         var epromC
         //array holding images
-        const arr = [bar, diamond, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry,];
+        const arr = [bar, diamond, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry];
         //const bars = [bar, barbarbar];
+       
   
         //button starts the spinning (official game start)
         $(button).on("click", function spin(){
-   
+
+          function disableButton()
+          {
+            $(button).prop('disabled', true);
+
+          }
+          disableButton();
+       
+
+        $("img").addClass("blur");
+        $("img").removeClass("shake");
+    
+          
+        console.log("spinning!");
+          
         //result display variable (led screen that shows what the player wins)
         var result = document.getElementById("result");
         //default display text
@@ -45,13 +60,16 @@ $(document).ready(function startGame(){
         var counter = 0;
         //function for slot one spin
         var setIntervalId = setInterval(function slotOne(){
+
         //counter adds one ever 10 milliseconds until it reaches 200
         counter ++;
+
         //computer chooses a random number based on how many items are in array
         epromA = Math.floor(Math.random() * arr.length) ;
+
         //random number is the index of the array that given time (changes every 10 milliseconds)
         $(reelA).attr("src", arr[epromA]);
-        //console.log("spinning slot 1"); 
+       
         //Once the counter variable reaches 200, reel one stops and diplays the current image based on the index of the array
         if(counter === 100){
         //stopping the spin funcion 
@@ -60,11 +78,14 @@ $(document).ready(function startGame(){
         //displaying the current image in reel one
         console.log(epromA);
         //playing the stop sound after reel is finished spinning 
-        var reelStopA = new Audio("https://freesound.org/data/previews/145/145441_2615119-lq.mp3");
+        var reelStopA = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
         reelStopA.play();
+        $("#a").removeClass("blur");
+        $("#a").addClass("shake");
         return 
         //end of all functions for reel one
         }
+        
         //this number determines how fast the reel spins (higher slower the RNG animation)
         },10);
         //======================// refer to reel one for explanation
@@ -74,12 +95,14 @@ $(document).ready(function startGame(){
         epromB = Math.floor(Math.random() * arr.length);
         $(reelB).attr("src", arr[epromB]);
         //console.log("spinning slot 2"); 
-        if(counterB ===150){
+        if(counterB === 150){
         clearInterval(setIntervalIdB);
         console.log("slot stopped 2");
         console.log(epromB);
-        var reelStopB = new Audio("https://freesound.org/data/previews/145/145441_2615119-lq.mp3");
+        var reelStopB = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
         reelStopB.play();
+        $("#b").removeClass("blur");
+        $("#b").addClass("shake");
         return 
         }
         },10);
@@ -95,242 +118,86 @@ $(document).ready(function startGame(){
         clearInterval(setIntervalIdC);
         console.log("slot stopped 3");
         console.log(epromC);
-        var reelStopC = new Audio("https://freesound.org/data/previews/145/145441_2615119-lq.mp3");
+        var reelStopC = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
         reelStopC.play();
+        console.log("STOP!");
+        $("#c").removeClass("blur");
+        $("#c").addClass("shake");
+
+        
+  
         console.log(epromA + " " + epromB + " " + epromC);
           
         //Play Table
-          //[bar, diamond, redDiamond, cherry, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry, grapes];
+        //bar, diamond, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry
           
         //SCOREBOARD 
-        //0. All bars
-        if(epromA == 0 && epromB == 0 && epromC == 0){
-        console.log("player wins 20 credits");
-        money = money + 20;
-        var bigWin= new Audio('https://freesound.org/data/previews/270/270319_5123851-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function jackpot(){
-        $(result).text("WIN $" + 20)
-        }
-        jackpot();
-        }
-          
-        //1. Diamonds
-        if(epromA == 1 && epromB == 1 && epromC == 1){
-        console.log("player wins 40 credits");
-        money = money + 40;
-        var bigWin= new Audio('win.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function jackpot(){
-        $(result).text("WIN $" + 40)
-        }
-        jackpot();
-        }
-          
-        //2. TRIPLE Cherries
-        if(epromA == 2 && epromB == 2 && epromC == 2){
-        console.log("player wins 60 credits");
-        money = money + 60;
-        var bigWin= new Audio('win.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 60)
-        }
-        cherries();
-        }
-          
-        //3. TRIPLE Cherries
-        if(epromA == 3 && epromB == 3 && epromC == 3){
-        console.log("player wins 80 credits");
-        money = money + 80;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 80)
-        }
-        cherries();
-        }
-          
-        //4. TRIPLE Cherries
-        if(epromA == 4 && epromB == 4 && epromC == 4){
-        console.log("player wins 100 credits");
-        money = money + 100;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 100)
-        }
-        cherries();
-        }
-          
-        //5. TRIPLE Cherries
-        if(epromA == 5 && epromB == 5 && epromC == 5){
-        console.log("player wins 120 credits");
-        money = money + 120;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 120)
-        }
-        cherries();
-        }
-          
-        //6. TRIPLE Cherries
-        if(epromA == 6 && epromB == 6 && epromC == 6){
-        console.log("player wins 140 credits");
-        money = money + 140;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 140)
-        }
-        cherries();
-        }
-          
-        //7. TRIPLE Cherries
-        if(epromA == 7 && epromB == 7 && epromC == 7){
-        console.log("player wins 160 credits");
-        money = money + 160;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 160)
-        }
-        cherries();
-        }
-          
-        //8. ***JACKPOT****
-        if(epromA == 8 && epromB == 8 && epromC == 8){
-        console.log("player wins 180 credits");
-        money = money + 180;
-        var bigWin= new Audio('https://freesound.org/data/previews/270/270319_5123851-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function jackpot(){
-        $(result).text("WIN $" + 180)
-        }
-        jackpot();
-        }
-          
-        //9. TRIPLE Cherries
-        if(epromA == 9 && epromB == 9 && epromC == 9){
-        console.log("player wins 200 credits");
-        money = money + 200;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 200)
-        }
-        cherries();
-        }
-          
-        //10. TRIPLE Cherries
-        if(epromA == 10 && epromB == 10 && epromC == 10){
-        console.log("player wins 220 credits");
-        money = money + 220;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 220)
-        }
-        cherries();
-        }
-          
-        //11. TRIPLE Cherries
-        if(epromA == 11 && epromB == 11 && epromC == 11){
-        console.log("player wins 240 credits");
-        money = money + 240;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 240)
-        }
-        cherries();
-        }
-          
-        //12. TRIPLE Cherries
-        if(epromA == 12 && epromB == 12 && epromC == 12){
-        console.log("player wins 260 credits");
-        money = money + 260;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 260)
-        }
-        cherries();
-        }
-          
-        //13.RIPLE Cherries
-        if(epromA == 13 && epromB == 13 && epromC == 13){
-        console.log("player wins 280 credits");
-        money = money + 280;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
-        bigWin.play();
-        $(credits).text(money);
-        function cherries(){
-        $(result).text("WIN $" + 280)
-        }
-        cherries();
-        }
-        //        ===========random wins =================       //
         
         //BAR IN THE MIDDLE
-        if(epromA == 0 || epromB == 0 || epromC == 0){
-        console.log("user wins 10 credits");
-        money = money + 10;
-        var winSound= new Audio('win.mp3');
+        if(epromA == 0 || epromB == 0|| epromC == 0){
+        console.log("user wins 50 credits");
+        money = money + 50;
+        var winSound = new Audio('./audio/win.mp3');
         winSound.play();
         $(credits).text(money);
         function bar(){
-        $(result).text("WIN $" + 10);
+        $(result).text("WIN $" + 50);
         }
         bar();
         }
-        
-        //BAR IN THE MIDDLE
+          
+       
+        if(epromA == 1 || epromB == 1 || epromC == 1){
+        console.log("user wins 100 credits");
+        money = money + 100;
+        var winSound = new Audio('./audio/win.mp3');
+        winSound.play();
+        $(credits).text(money);
+        function diamond()
+        {
+        $(result).text("WIN $" + 100);
+        }
+        diamond();
+        }
+
         if(epromA == 3 || epromB == 3 || epromC == 3){
         console.log("user wins 50 credits");
         money = money + 50;
-        var winSound= new Audio('win.mp3');
+        var winSound = new Audio('./audio/win.mp3');
         winSound.play();
         $(credits).text(money);
-        function seven(){
+        function seven()
+        {
         $(result).text("WIN $" + 50);
         }
         seven();
         }
-          
-        //Diamond On One
-        if(epromA == 1 || epromB == 1 || epromC == 1){
-        console.log("user wins 20 credits");
-        money = money + 20;
-        var winSound= new Audio('win.mp3');
-        winSound.play();
-        $(credits).text(money);
-        function diamondOnOne()
+
+        if(epromA == 7 || epromB == 7 || epromC == 7){
+          console.log("user wins 50 credits");
+          money = money + 50;
+          var winSound = new Audio('./audio/win.mp3');
+          winSound.play();
+          $(credits).text(money);
+          function barBarBar()
+          {
+          $(result).text("WIN $" + 50);
+          }
+          barBarBar();
+          }
+
+        function enableButton()
         {
-        $(result).text("WIN $" + 20);
+          $(button).prop('disabled', false);
+         
         }
-        diamondOnOne();
-        }
+        setTimeout(enableButton, 1000);
         return 
         //end of last spin reel
         }
         },10);
 
-        money = money - 10;
+        money = money - 50;
         $(credits).text(money);
         if(money <=0){
         
@@ -349,4 +216,3 @@ $(document).ready(function startGame(){
         });
         //end of document ready event
         });
-
