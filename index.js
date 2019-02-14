@@ -150,7 +150,7 @@ $(document).ready(function startGame(){
         if(epromA == 1 || epromB == 1 || epromC == 1){
         console.log("user wins 100 credits");
         money = money + 100;
-        var winSound = new Audio('./audio/win.mp3');
+        var winSound = new Audio('win.mp3');
         winSound.play();
         $(credits).text(money);
         function diamond()
@@ -163,7 +163,7 @@ $(document).ready(function startGame(){
         if(epromA == 3 || epromB == 3 || epromC == 3){
         console.log("user wins 50 credits");
         money = money + 50;
-        var winSound = new Audio('./audio/win.mp3');
+         var winSound = new Audio('win.mp3');
         winSound.play();
         $(credits).text(money);
         function seven()
@@ -176,7 +176,7 @@ $(document).ready(function startGame(){
         if(epromA == 7 || epromB == 7 || epromC == 7){
           console.log("user wins 50 credits");
           money = money + 50;
-          var winSound = new Audio('./audio/win.mp3');
+           var winSound = new Audio('win.mp3');
           winSound.play();
           $(credits).text(money);
           function barBarBar()
