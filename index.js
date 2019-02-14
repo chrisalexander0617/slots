@@ -4,10 +4,8 @@ $(document).ready(function startGame(){
   
         //const variable for slot images
         const bar= 'https://images.trvl-media.com/media/content/expus/graphics/promos/deals/casino/slot-icon-04.png';
-        const cherry= 'https://i.pinimg.com/originals/1b/e9/d4/1be9d45c987ee7c86e6d94367c981a7e.gif';
         const lemon = "https://img.icons8.com/cotton/2x/sour-lemon.png"
         const diamond = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMsVqKKb8T4wUEBcVuN-68wmkyE7nO-QlZUS0rV62uk2dKR420';
-        
         const orange = 'https://img11.androidappsapk.co/300/d/6/3/com.freedom.ocregister.png';
         const strawberry = "https://cdn.iconscout.com/icon/free/png-256/strawberry-fruit-vitamin-healthy-sweet-31190.png";
         const chip = 'https://static.thenounproject.com/png/117762-200.png';
@@ -33,7 +31,7 @@ $(document).ready(function startGame(){
         var epromB
         var epromC
         //array holding images
-        const arr = [bar, diamond, cherry, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry,];
+        const arr = [bar, diamond, lemon, seven, orange, bell, watermelon, barbarbar, chip, strawberry,];
         //const bars = [bar, barbarbar];
   
         //button starts the spinning (official game start)
