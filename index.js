@@ -120,7 +120,7 @@ $(document).ready(function startGame(){
         if(epromA == 1 && epromB == 1 && epromC == 1){
         console.log("player wins 40 credits");
         money = money + 40;
-        var bigWin= new Audio('https://freesound.org/data/previews/270/270319_5123851-lq.mp3');
+        var bigWin= new Audio('win.mp3');
         bigWin.play();
         $(credits).text(money);
         function jackpot(){
@@ -133,7 +133,7 @@ $(document).ready(function startGame(){
         if(epromA == 2 && epromB == 2 && epromC == 2){
         console.log("player wins 60 credits");
         money = money + 60;
-        var bigWin= new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
+        var bigWin= new Audio('win.mp3');
         bigWin.play();
         $(credits).text(money);
         function cherries(){
@@ -290,7 +290,7 @@ $(document).ready(function startGame(){
         if(epromB == 0){
         console.log("user wins 10 credits");
         money = money + 10;
-        var winSound = new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
+        var winSound= new Audio('win.mp3');
         winSound.play();
         $(credits).text(money);
         function bar(){
@@ -303,7 +303,7 @@ $(document).ready(function startGame(){
         if(epromA == 1 || epromB == 1 || epromC == 1){
         console.log("user wins 20 credits");
         money = money + 20;
-        var winSound = new Audio('https://freesound.org/data/previews/387/387232_1474204-lq.mp3');
+        var winSound= new Audio('win.mp3');
         winSound.play();
         $(credits).text(money);
         function diamondOnOne()
