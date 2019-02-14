@@ -287,7 +287,7 @@ $(document).ready(function startGame(){
         //        ===========random wins =================       //
         
         //BAR IN THE MIDDLE
-        if(epromB == 0){
+        if(epromA == 0 || epromB == 0 || epromC == 0){
         console.log("user wins 10 credits");
         money = money + 10;
         var winSound= new Audio('win.mp3');
@@ -297,6 +297,19 @@ $(document).ready(function startGame(){
         $(result).text("WIN $" + 10);
         }
         bar();
+        }
+        
+        //BAR IN THE MIDDLE
+        if(epromA == 3 || epromB == 3 || epromC == 3){
+        console.log("user wins 50 credits");
+        money = money + 50;
+        var winSound= new Audio('win.mp3');
+        winSound.play();
+        $(credits).text(money);
+        function seven(){
+        $(result).text("WIN $" + 50);
+        }
+        seven();
         }
           
         //Diamond On One
