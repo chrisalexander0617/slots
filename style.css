@@ -116,8 +116,8 @@ body
 -moz-animation: flickerAnimation .5s infinite;
 -o-animation: flickerAnimation .5s infinite;
 animation: flickerAnimation .05s infinite;
-filter: blur(3px);
--webkit-filter: blur(3px);
+filter: blur(2px);
+-webkit-filter: blur(2px);
 }
 
 .shake
