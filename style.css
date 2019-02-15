@@ -97,7 +97,9 @@ body
 .reels img 
 {
    width:60%;
-  
+   position: relative;
+   
+   
 }
 
 
@@ -114,8 +116,8 @@ body
 -moz-animation: flickerAnimation .5s infinite;
 -o-animation: flickerAnimation .5s infinite;
 animation: flickerAnimation .05s infinite;
-filter: blur(7px);
--webkit-filter: blur(7px);
+filter: blur(3px);
+-webkit-filter: blur(3px);
 }
 
 .shake
@@ -141,6 +143,82 @@ filter: blur(7px);
     transform: translate3d(0, 0px, 0);
   }
 }
+
+.top
+{
+  animation: top .1s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  position: relative;
+}
+
+@keyframes top {
+  10%, 90% {
+    transform: translate3d(0, 0px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(0, 100px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(0, -100px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+.top2
+{
+  animation: top2 .12s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  position: relative;
+}
+
+@keyframes top2 {
+  10%, 90% {
+    transform: translate3d(0, 0px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(0, 100px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(0, -100px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
+.top3
+{
+  animation: top3 .13s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  position: relative;
+}
+
+@keyframes top3 {
+  10%, 90% {
+    transform: translate3d(0, 0px, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(0, 100px, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(0, -100px, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(0, 0px, 0);
+  }
+}
+
 
 .button 
 {
@@ -390,3 +468,4 @@ display: block;
     }
 
 }
+
