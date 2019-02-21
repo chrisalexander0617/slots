@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Bowlby+One');
 
 body 
 {
@@ -69,7 +70,7 @@ body
 
 #result {
     margin:0 auto;
-    font-family:orbitron;
+    font-family:Bolby One;
     background:rgb(37, 37, 37);
     height:50px;
     width:50%;
@@ -268,7 +269,7 @@ button:active
 
 #credits 
 {
-    font-family:Orbitron;
+    font-family:Bolby One;
     background:rgb(37, 37, 37);
     float:right;
     text-align:right;
