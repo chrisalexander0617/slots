@@ -88,7 +88,7 @@ $(document).ready(function startGame(){
         //displaying the current image in reel one
         console.log(epromA);
         //playing the stop sound after reel is finished spinning 
-        var reelStopA = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
+        var reelStopA = new Audio("https://www.soundjay.com/button/button-23.mp3");
         reelStopA.play();
         $("#a").removeClass("blur");
         $("#a").addClass("shake");
@@ -111,7 +111,7 @@ $(document).ready(function startGame(){
         clearInterval(setIntervalIdB);
         console.log("slot stopped 2");
         console.log(epromB);
-        var reelStopB = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
+        var reelStopB = new Audio("https://www.soundjay.com/button/button-23.mp3");
         reelStopB.play();
         $("#b").removeClass("blur");
         $("#b").addClass("shake");
@@ -132,7 +132,7 @@ $(document).ready(function startGame(){
         clearInterval(setIntervalIdC);
         console.log("slot stopped 3");
         console.log(epromC);
-        var reelStopC = new Audio("https://www.soundjay.com/mechanical/multi-plier-open-1.mp3");
+        var reelStopC = new Audio("https://www.soundjay.com/button/button-23.mp3");
         reelStopC.play();
         console.log("STOP!");
         $("#c").removeClass("blur");
@@ -152,7 +152,7 @@ $(document).ready(function startGame(){
         if(epromA == 0 || epromB == 0|| epromC == 0){
           console.log("user wins 50 credits");
           money = money + 50;
-          var winSound = new Audio('./audio/win.mp3');
+          var winSound = new Audio('win.mp3');
           winSound.play();
           $(credits).text(money);
           function bar(){
@@ -165,7 +165,7 @@ $(document).ready(function startGame(){
         if(epromA == 1 || epromB == 1 || epromC == 1){
           console.log("user wins 100 credits");
           money = money + 100;
-          var winSound = new Audio('./audio/win.mp3');
+          var winSound = new Audio('win.mp3');
           winSound.play();
           $(credits).text(money);
           function diamond()
@@ -178,7 +178,7 @@ $(document).ready(function startGame(){
         if(epromA == 3 || epromB == 3 || epromC == 3){
           console.log("user wins 50 credits");
           money = money + 50;
-          var winSound = new Audio('./audio/win.mp3');
+          var winSound = new Audio('win.mp3');
           winSound.play();
           $(credits).text(money);
           function seven()
@@ -191,7 +191,7 @@ $(document).ready(function startGame(){
         if(epromA == 7 || epromB == 7 || epromC == 7){
           console.log("user wins 50 credits");
           money = money + 50;
-          var winSound = new Audio('./audio/win.mp3');
+          var winSound = new Audio('win.mp3');
           winSound.play();
           $(credits).text(money);
           function barBarBar()
